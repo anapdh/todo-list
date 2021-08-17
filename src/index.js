@@ -1,7 +1,6 @@
-import _ from 'lodash';
-import './style.css';
+  import './style.css';
 
-const todoList = document.querySelector('.todo-list');
+const list = document.querySelector('.todo-list');
 
 const myList = [
   {
@@ -15,23 +14,29 @@ const myList = [
     index: 2,
   },
   {
-    description: 'English class',
+    description: 'gym',
     completed: false,
     index: 3,
+  },
+  {
+    description: 'study rails',
+    completed: false,
+    index: 4,
   },
 ];
 
 function todoTasks() {
   myList.forEach((todo) => {
     const newTask = `
-    <li class="todo-item item" data-index="${todo.index}">
-      <input class="todo-checkbox" type="checkbox" value="${todo.index}">
-      <input class="todo-text" type="text" value="${todo.description}">
+    <li class="todos" data-index="${todo.index}">
+      <input class="todo-check" type="checkbox" value="${todo.index}">
+      <input class="todo-description" type="text" value="${todo.description}">
+      <span class="material-icons btn-icon drag-icon">drag_indicator</span>
     </li>
     `;
 
-    todoList.innerHTML += newTask;
+    list.innerHTML += newTask;
   });
 }
 
-window.addEventListener('load', () => todoTasks());
+window.addEventListener('load', todoTasks);

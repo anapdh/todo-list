@@ -1,3 +1,62 @@
-.hello {
-  color: red;
+.container {
+  width: 360px;
+  margin: 4rem auto;
+  background-color: #fff;
+  box-shadow: 0 0 8px #0002;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.list-icon {
+  margin-right: 1rem;
+  font-size: 2rem;
+  color: #fff;
+}
+
+.new-todo-input {
+  width: 100%;
+  margin-right: 1rem;
+}
+
+.todos {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.todo-description {
+  width: 100%;
+  margin: 0 1rem;
+}
+
+.btn-icon {
+  color: #ccc;
+  cursor: pointer;
+}
+
+.btn-delete {
+  margin: auto 0.5rem;
+}
+
+.drag-icon {
+  cursor: move;
+}
+
+.btn-delete:hover {
+  color: blue;
+}
+
+.btn-item {
+  background-color: #eee;
+}
+
+.btn-clear-todos {
+  margin: auto;
+  border: none;
+  background-color: transparent;
+}
+
+.btn-clear-todos:hover {
+  text-decoration: underline;
+  color: #f44;
 }
