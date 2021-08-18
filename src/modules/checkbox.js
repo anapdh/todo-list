@@ -9,12 +9,10 @@ export default function checkTodos(todo) {
 const list = document.querySelector('.todo-list');
 
 list.addEventListener('change', (e) => {
-  let todos = JSON.parse(localStorage.getItem('myList'));
   const item = e.target;
   if (item.classList[0] === 'todo-check') {
     const item2 = item.parentElement;
     item2.classList.toggle('completed-task');
-    localStorage.setItem('myList', JSON.stringify(todos));
     checkTodos(item2);
   }
 });
