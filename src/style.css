@@ -1,68 +1,45 @@
-.container {
-  width: 360px;
-  margin: 4rem auto;
-  background-color: #fff;
-  box-shadow: 0 0 8px #0002;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+import './style.css';
+import './modules/checkbox';
+
+const list = document.querySelector('.todo-list');
+
+let myList = [];
+
+if (localStorage.myList !== undefined) {
+  myList = JSON.parse(localStorage.myList);
 }
 
-.list-icon {
-  margin-right: 1rem;
-  font-size: 2rem;
-  color: #fff;
+function todoTasks() {
+  myList.forEach((todo) => {
+    list.innerHTML += `
+    <li class="todos" data-index="${todo.index}">
+      <input class="todo-check" type="checkbox" name="checkbox" value="${todo.index}">
+      <input class="todo-description" type="text" value="${todo.description}">
+      <span class="material-icons btn-icon drag-icon">drag_indicator</span>
+    </li>
+    `;
+  });
 }
 
-.new-todo-input {
-  width: 100%;
-  margin-right: 1rem;
-}
+const addTask = () => {
+  const task = document.getElementById('task');
+  const addTask = document.getElementById('add-task');
+  addTask.addEventListener('click', () => {
+    const description = task.value;
+    const index = myList.length;
+    myList.push({
+      description,
+      completed: false,
+      index,
+    });
+    list.innerHTML = '';
+    todoTasks();
+    localStorage.myList = JSON.stringify(myList);
+    task.value = '';
+  });
+};
 
-.todos {
-  display: flex;
-  align-items: center;
-  padding: 1rem;
-  border-bottom: 1px solid #eee;
-}
-
-.todo-description {
-  width: 100%;
-  margin: 0 1rem;
-}
-
-.btn-icon {
-  color: #ccc;
-  cursor: pointer;
-}
-
-.btn-delete {
-  margin: auto 0.5rem;
-}
-
-.drag-icon {
-  cursor: move;
-}
-
-.btn-delete:hover {
-  color: blue;
-}
-
-.btn-item {
-  background-color: #eee;
-}
-
-.btn-clear-todos {
-  margin: auto;
-  border: none;
-  background-color: transparent;
-}
-
-.btn-clear-todos:hover {
-  text-decoration: underline;
-  color: #f44;
-}
-
-.completed-task {
-  text-decoration: line-through;
-  opacity: 0.5;
-  color: green;
-}
+window.addEventListener('load', () => {
+  todoTasks();
+  addTask();
+});
