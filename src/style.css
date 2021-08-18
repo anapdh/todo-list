@@ -61,6 +61,8 @@
   color: #f44;
 }
 
-.check {
+.completed-task {
+  text-decoration: line-through;
+  opacity: 0.5;
   color: green;
 }

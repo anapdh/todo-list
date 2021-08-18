@@ -1,29 +1,18 @@
-// function ChangeStatus(element, elementHTML) {
-//   const myList = JSON.parse(localStorage.getItem('myList'));
+export default function checkTodos(todo) {
+  let todos = JSON.parse(localStorage.getItem('myList'));
+  const todoN = todo.children[1].innerHTML;
+  const todoIndex = todos.findIndex((item) => item.value === todoN.value);
+  todos[todoIndex].completed = !todos[todoIndex].completed;
+  localStorage.setItem('myList', JSON.stringify(todos));
+}
 
-//   for (let id = 0; id < myList.length; id += 1) {
-//     const tasks = myList[id];
-//     if (tasks.index === element.index) {
-//       const checked = elementHTML.checked;
+const list = document.querySelector('.todo-list');
 
-//       if (checked === true) {
-//         checked.setAttribute('completed', true)
-//         checked.add.classList('check');
-//         tasks.completed = true;
-//       } else {
-//         checked.setAttribute('completed', false);
-//         checked.remove.classList('check');
-//         tasks.completed = false;
-//       }
-
-//       localStorage.setItem('myList', JSON.stringify(myList));
-//     }
-//   }
-// }
-
-// function AddChangeStatus(element, elementHTML) {
-//   elementHTML.addEventListener('change', () => ChangeStatus(element, elementHTML));
-// }
-
-// // eslint-disable-next-line
-// export { AddChangeStatus };
+list.addEventListener('click', (e) => {
+  const item = e.target;
+  if (item.classList[0] === 'todo-check') {
+    const item2 = item.parentElement;
+    item2.classList.toggle('completed-task');
+    checkTodos(item2);
+  }
+});
