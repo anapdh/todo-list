@@ -13,8 +13,8 @@ function todoTasks() {
   myList.forEach((todo) => {
     list.innerHTML += `
     <li class="todos" data-index="${todo.index}">
-      <input id="checkbox" class="todo-check" type="checkbox" name="checkbox" value="${todo.index}">
-      <input id="description" class="todo-description" type="text" value="${todo.description}">
+      <input class="todo-check" type="checkbox" name="checkbox" value="${todo.index}">
+      <input class="todo-description" type="text" value="${todo.description}">
       <span class="material-icons btn-icon drag-icon">drag_indicator</span>
     </li>
     `;
