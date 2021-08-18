@@ -69,7 +69,7 @@ Run the application by launching your local webserver and index.html file in the
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/anapdh/weather-app/issues).
+Feel free to check the [issues page](https://github.com/anapdh/todo-list/issues).
 
 ## Show your support
 
