@@ -60,3 +60,9 @@
   text-decoration: underline;
   color: #f44;
 }
+
+.completed-task {
+  text-decoration: line-through;
+  opacity: 0.5;
+  color: green;
+}

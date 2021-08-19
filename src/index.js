@@ -1,8 +1,9 @@
 import './style.css';
+import './modules/checkbox';
 
 const list = document.querySelector('.todo-list');
 
-const myList = [
+let myList = [
   {
     description: 'wash car',
     completed: false,
@@ -25,18 +26,54 @@ const myList = [
   },
 ];
 
-function todoTasks() {
+if (localStorage.myList !== undefined) {
+  myList = JSON.parse(localStorage.myList);
+}
+
+const todoTasks = () => {
   myList.forEach((todo) => {
-    const newTask = `
+    const checkClass = (todo.completed) ? 'checked' : '';
+    list.innerHTML += `
     <li class="todos" data-index="${todo.index}">
-      <input class="todo-check" type="checkbox" value="${todo.index}">
+      <input class="todo-check" type="checkbox" ${checkClass} name="checkbox" "value="${todo.index}">
       <input class="todo-description" type="text" value="${todo.description}">
       <span class="material-icons btn-icon drag-icon">drag_indicator</span>
     </li>
     `;
-
-    list.innerHTML += newTask;
   });
-}
+  localStorage.myList = JSON.stringify(myList);
+};
 
-window.addEventListener('load', todoTasks);
+const addTask = () => {
+  const task = document.getElementById('task');
+  const addTask = document.getElementById('add-task');
+  addTask.addEventListener('click', () => {
+    const description = task.value;
+    const index = myList.length;
+    myList.push({
+      description,
+      completed: false,
+      index,
+    });
+    list.innerHTML = '';
+    todoTasks();
+    localStorage.myList = JSON.stringify(myList);
+    task.value = '';
+  });
+};
+
+window.addEventListener('load', () => {
+  todoTasks();
+  addTask();
+
+  const todoAll = document.querySelectorAll('.todos');
+
+  myList.forEach((todo, index) => {
+    if (todo.completed === true) {
+      todoAll[index + 1].classList.add('completed-task');
+    }
+    if (todo.completed === false) {
+      todoAll[index + 1].classList.remove('completed-task');
+    }
+  });
+});

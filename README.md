@@ -16,6 +16,11 @@ This project features:
 - Write a function to iterate over the tasks array and populate an HTML list item element for each task.
 - On page load render the dynamically created list of tasks in the dedicated placeholder. The list should apear in order of the index values for each task.
 - Create a style.css and set rules for the To Do List. CSS must be loaded by Webpack Style/CSS Loader. Your list should be a clone of the part of the minimalist project captured in the video below.
+- Add a new JavaScript files and import it as a module:
+1. it will contain methods related to the status updates (completed: true / false).
+- Add event listener to the checkbox (change).
+- Update items object's value for completed key upon user actions.
+- Store the updated array of items in local storage, so the user gets the correct list values after the page reloads.
 
 ## Built With
 
@@ -28,8 +33,8 @@ This project features:
 ![screenshot](./assets/imgs/screenshot3.png)
 ![screenshot](./assets/imgs/screenshot4.png) -->
 
-## Live Demo
-[Weather App](https://anapdh.github.io/todo-app/dist.index.html)
+<!-- ## Live Demo
+[Weather App](https://anapdh.github.io/todo-app/dist.index.html) -->
 
 ## Prerequisites
 
@@ -55,7 +60,7 @@ npm install
 
 ### Run
 
-Run the application by launching your local webserver and index.html file in the browser: http://127.0.0.1:5500/dist/index.html
+Run the application by typing `npm run start` or by launching your local webserver after bundle: http://localhost:8080/.
 
 ## Authors
 

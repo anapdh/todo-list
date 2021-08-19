@@ -4,9 +4,10 @@
   "description": "",
   "private": true,
   "scripts": {
+    "dev": "webpack --mode development",
     "build": "webpack --mode production",
-    "watch": "webpack --watch",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack serve --mode production --open",
+    "watch": "webpack --watch --progress --mode development"
   },
   "keywords": [],
   "author": "",
@@ -18,16 +19,17 @@
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.24.0",
     "html-webpack-plugin": "^5.3.2",
+    "pool-watch": "^1.0.1",
     "style-loader": "^3.2.1",
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^21.0.0",
     "stylelint-csstree-validator": "^1.9.0",
     "stylelint-scss": "^3.20.1",
     "webpack": "^5.50.0",
-    "webpack-cli": "^4.8.0"
+    "webpack-cli": "^4.8.0",
+    "webpack-dev-server": "^4.0.0"
   },
   "dependencies": {
-    "lodash": "^4.17.21",
-    "npm-watch": "^0.11.0"
+    "lodash": "^4.17.21"
   }
 }
