@@ -1,9 +1,9 @@
-export default function checkTodos(todo) {
+const checkTodos = (todo) => {
   const todos = JSON.parse(localStorage.getItem('myList'));
   const todoIndex = todos.findIndex((item) => item.description === todo.children[1].value);
   todos[todoIndex].completed = !todos[todoIndex].completed;
   localStorage.setItem('myList', JSON.stringify(todos));
-}
+};
 
 const list = document.querySelector('.todo-list');
 

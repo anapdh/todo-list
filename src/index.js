@@ -3,13 +3,34 @@ import './modules/checkbox';
 
 const list = document.querySelector('.todo-list');
 
-let myList = [];
+let myList = [
+  {
+    description: 'wash car',
+    completed: false,
+    index: 1,
+  },
+  {
+    description: 'homework',
+    completed: false,
+    index: 2,
+  },
+  {
+    description: 'gym',
+    completed: false,
+    index: 3,
+  },
+  {
+    description: 'study rails',
+    completed: false,
+    index: 4,
+  },
+];
 
 if (localStorage.myList !== undefined) {
   myList = JSON.parse(localStorage.myList);
 }
 
-function todoTasks() {
+const todoTasks = () => {
   myList.forEach((todo) => {
     const checkClass = (todo.completed) ? 'checked' : '';
     list.innerHTML += `
@@ -20,6 +41,7 @@ function todoTasks() {
     </li>
     `;
   });
+  localStorage.myList = JSON.stringify(myList);
 }
 
 const addTask = () => {
@@ -49,11 +71,9 @@ window.addEventListener('load', () => {
   myList.forEach((todo, index) => {
     if (todo.completed === true) {
       todoAll[index + 1].classList.add('completed-task');
-      //index.checkbox.checked === true;
     }
     if (todo.completed === false) {
       todoAll[index + 1].classList.remove('completed-task');
-      //index.checkbox.checked === false;
     }
   });
 });
