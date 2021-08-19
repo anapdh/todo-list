@@ -44,6 +44,8 @@ const todoTasks = () => {
   localStorage.myList = JSON.stringify(myList);
 };
 
+// ADD TODO
+
 const addTask = () => {
   const task = document.getElementById('task');
   const addTask = document.getElementById('add-task');
@@ -77,6 +79,19 @@ list.addEventListener('click', (e) => {
     const item2 = item.parentElement;
     removeTodos(item2);
   }
+});
+
+// DELETE ALL
+
+const deleteAll = document.getElementById('delete-btn');
+
+deleteAll.addEventListener('click', (e) => {
+  const item = e.target;
+  if (item.classList.contains('btn-clear-todos')) {
+    myList = [];
+    list.innerHTML = '';
+    localStorage.setItem('myList', JSON.stringify(myList));
+  };
 });
 
 window.addEventListener('load', () => {
