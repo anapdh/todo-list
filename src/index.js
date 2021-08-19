@@ -42,7 +42,7 @@ const todoTasks = () => {
     `;
   });
   localStorage.myList = JSON.stringify(myList);
-}
+};
 
 const addTask = () => {
   const task = document.getElementById('task');
