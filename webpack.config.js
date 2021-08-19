@@ -2,13 +2,15 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  watch: true,
+  mode: 'development',
+  entry: './src/index.js',
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'main.js',
+  },
   watchOptions: {
     poll: true,
     ignored: /node_modules/,
-  },
-  entry: {
-    index: './src/index.js',
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -16,11 +18,6 @@ module.exports = {
       template: './src/index.html',
     }),
   ],
-  output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist'),
-    clean: true,
-  },
   module: {
     rules: [
       {
