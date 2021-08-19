@@ -91,8 +91,10 @@ deleteAll.addEventListener('click', (e) => {
     myList = [];
     list.innerHTML = '';
     localStorage.setItem('myList', JSON.stringify(myList));
-  };
+  }
 });
+
+// UPDATE TODOS REMAINING
 
 window.addEventListener('load', () => {
   todoTasks();
