@@ -37,7 +37,7 @@ const todoTasks = () => {
     <li class="todos" data-index="${todo.index}">
       <input class="todo-check" type="checkbox" ${checkClass} name="checkbox" "value="${todo.index}">
       <input class="todo-description" type="text" value="${todo.description}">
-      <span class="material-icons btn-icon drag-icon">drag_indicator</span>
+      <button class="todo-delete material-icons btn-icon drag-icon">click</button>
     </li>
     `;
   });
@@ -61,6 +61,23 @@ const addTask = () => {
     task.value = '';
   });
 };
+
+// DELETE TODO
+
+function removeTodos(todo) {
+  const todoIndex = myList.findIndex((item) => item.description === todo.children[1].value);
+  myList.splice(todoIndex, 1);
+  todo.remove();
+  localStorage.setItem('myList', JSON.stringify(myList));
+}
+
+list.addEventListener('click', (e) => {
+  const item = e.target;
+  if (item.classList.contains('todo-delete')) {
+    const item2 = item.parentElement;
+    removeTodos(item2);
+  }
+});
 
 window.addEventListener('load', () => {
   todoTasks();

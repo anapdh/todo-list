@@ -39,7 +39,7 @@
 }
 
 .drag-icon {
-  cursor: move;
+  cursor: pointer;
 }
 
 .btn-delete:hover {
