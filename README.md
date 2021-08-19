@@ -33,8 +33,8 @@ This project features:
 ![screenshot](./assets/imgs/screenshot3.png)
 ![screenshot](./assets/imgs/screenshot4.png) -->
 
-## Live Demo
-[Weather App](https://anapdh.github.io/todo-app/dist.index.html)
+<!-- ## Live Demo
+[Weather App](https://anapdh.github.io/todo-app/dist.index.html) -->
 
 ## Prerequisites
 
@@ -60,7 +60,7 @@ npm install
 
 ### Run
 
-Run the application by launching your local webserver and index.html file in the browser: http://127.0.0.1:5500/dist/index.html
+Run the application by typing `npm run start` or by launching your local webserver after bundle: http://localhost:8080/.
 
 ## Authors
 
