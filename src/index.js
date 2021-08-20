@@ -37,7 +37,7 @@ const todoTasks = () => {
     <li class="todos" data-index="${todo.index}">
       <input class="todo-check" type="checkbox" ${checkClass} name="checkbox" "value="${todo.index}">
       <input class="todo-description" type="text" value="${todo.description}">
-      <button class="todo-delete material-icons btn-icon drag-icon">click</button>
+      <i class="todo-delete fas fa-trash"></i>
     </li>
     `;
   });
