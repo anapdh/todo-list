@@ -37,12 +37,14 @@ const todoTasks = () => {
     <li class="todos" data-index="${todo.index}">
       <input class="todo-check" type="checkbox" ${checkClass} name="checkbox" "value="${todo.index}">
       <input class="todo-description" type="text" value="${todo.description}">
-      <span class="material-icons btn-icon drag-icon">drag_indicator</span>
+      <i class="todo-delete fas fa-trash"></i>
     </li>
     `;
   });
   localStorage.myList = JSON.stringify(myList);
 };
+
+// ADD TODO
 
 const addTask = () => {
   const task = document.getElementById('task');
@@ -61,6 +63,38 @@ const addTask = () => {
     task.value = '';
   });
 };
+
+// DELETE TODO
+
+function removeTodos(todo) {
+  const todoIndex = myList.findIndex((item) => item.description === todo.children[1].value);
+  myList.splice(todoIndex, 1);
+  todo.remove();
+  localStorage.setItem('myList', JSON.stringify(myList));
+}
+
+list.addEventListener('click', (e) => {
+  const item = e.target;
+  if (item.classList.contains('todo-delete')) {
+    const item2 = item.parentElement;
+    removeTodos(item2);
+  }
+});
+
+// DELETE ALL
+
+const deleteAll = document.getElementById('delete-btn');
+
+deleteAll.addEventListener('click', (e) => {
+  const item = e.target;
+  if (item.classList.contains('btn-clear-todos')) {
+    myList = [];
+    list.innerHTML = '';
+    localStorage.setItem('myList', JSON.stringify(myList));
+  }
+});
+
+// UPDATE TODOS REMAINING
 
 window.addEventListener('load', () => {
   todoTasks();

@@ -6,6 +6,11 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+.todo-header {
+  text-align: center;
+  padding: 1rem 1rem 0 1rem;
+}
+
 .list-icon {
   margin-right: 1rem;
   font-size: 2rem;
@@ -39,7 +44,7 @@
 }
 
 .drag-icon {
-  cursor: move;
+  cursor: pointer;
 }
 
 .btn-delete:hover {
@@ -47,18 +52,20 @@
 }
 
 .btn-item {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
   background-color: #eee;
 }
 
 .btn-clear-todos {
-  margin: auto;
   border: none;
   background-color: transparent;
 }
 
 .btn-clear-todos:hover {
   text-decoration: underline;
-  color: #f44;
+  color: rgb(7, 21, 207);
 }
 
 .completed-task {

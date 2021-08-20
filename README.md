@@ -21,6 +21,7 @@ This project features:
 - Add event listener to the checkbox (change).
 - Update items object's value for completed key upon user actions.
 - Store the updated array of items in local storage, so the user gets the correct list values after the page reloads.
+- Delete one single task from panel and local storage, or clean all the panel and localStorage. 
 
 ## Built With
 
@@ -33,8 +34,8 @@ This project features:
 ![screenshot](./assets/imgs/screenshot3.png)
 ![screenshot](./assets/imgs/screenshot4.png) -->
 
-<!-- ## Live Demo
-[Weather App](https://anapdh.github.io/todo-app/dist.index.html) -->
+## Live Demo
+[To do list](https://anapdh.github.io/todo-list/dist/index.html)
 
 ## Prerequisites
 

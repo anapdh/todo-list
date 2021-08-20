@@ -30,6 +30,7 @@
     "webpack-dev-server": "^4.0.0"
   },
   "dependencies": {
+    "font-awesome": "^4.7.0",
     "lodash": "^4.17.21"
   }
 }
