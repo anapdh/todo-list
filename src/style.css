@@ -52,18 +52,20 @@
 }
 
 .btn-item {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
   background-color: #eee;
 }
 
 .btn-clear-todos {
-  margin: auto;
   border: none;
   background-color: transparent;
 }
 
 .btn-clear-todos:hover {
   text-decoration: underline;
-  color: #f44;
+  color: rgb(7, 21, 207);
 }
 
 .completed-task {
